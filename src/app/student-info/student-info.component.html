@@ -1,0 +1,98 @@
+<div class="main-content">
+   <div class="container-fluid">
+         <div class="row">
+               <div class="col-md-7 col-lg-7 col-sm-7">
+                 <div class="titleHead float-left">Student Info</div>
+               </div>
+               <!-- <div class="col-md-5 col-lg-5 col-sm-5">
+                     <form class="navbar-form">
+                           <div class="input-group no-border">
+                               <input type="text" value="" class="form-control" placeholder="Search Your Uniq Id">
+                               <i class="material-icons search-icons">search</i>
+                           </div>
+                       </form>
+               </div> -->
+            </div>
+       <div class="modal-body">
+           <!--  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button> -->
+           <!--  <h5 class="modal-title modalTitle" id="exampleModalLongTitle">ROLL NUMBER - 343574648337382722</h5>
+            <h6 class="modalsubTitle">STUDENT NAME - SUMIT VYAS    |    DOCUMENT TYPE - TRANSCRIPTS    |    COURSE - B.TECH      |    SEMESTER - 2nd    |    YEAR - 2020</h6> -->
+
+            <img src="assets/img/qr-code.png" style="height:60px;"/>
+          
+            <hr>
+
+        </div>
+
+          <div class="table-responsive">
+                     <table class="table table-bordered">
+                      
+                        
+                      <tr>
+                              <td>
+                               <b>University Name </b>
+                              </td>
+                              <td>
+                              {{instName?instName:'NA'}}
+                              </td>
+                           </tr>
+
+                           <tr>
+                              <td>
+                              <b> University Id</b> 
+                              </td>
+                              <td>
+                             {{accred_num?accred_num:'NA'}}
+                              </td>
+                           </tr>
+                              <tr>
+                              <td>
+                              <b> Student Name</b> 
+                              </td>
+                              <td>
+                             {{studentInfo.studentName}}
+                              </td>
+                           </tr>
+                              <tr>
+                              <td>
+                              <b> Student Roll No.</b> 
+                              </td>
+                              <td>
+                             {{studentInfo.stud_roll_no}}
+                              </td>
+                           </tr>
+                              <tr>
+                              <td>
+                              <b> Date Issue</b> 
+                              </td>
+                              <td>
+                                 {{studentInfo.req_date | date: 'dd/MM/yyyy , HH:mm '}}
+                              </td>
+                           </tr>
+                              <tr>
+                              <td>
+                              <b> Certificate</b> 
+                              </td>
+                              <td>
+                                <a href="javascript:void(0)" data-toggle="modal"  > {{studentInfo.doc}}</a>
+                              
+                              </td>
+                           </tr>
+                           
+                           <!--   <tr>
+                              <td>
+                              <b> Date</b> 
+                              </td>
+                              <td>
+                            10-12-2019
+                              </td>
+                           </tr> -->
+                            
+                        
+                     </table>
+                  </div>
+
+   </div>
+</div>

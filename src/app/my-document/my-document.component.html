@@ -1,0 +1,252 @@
+<div class="main-content">
+   <div class="container-fluid">
+         <div class="row">
+               <div class="col-md-7 col-lg-7 col-sm-7">
+                 <div class="titleHead float-left">My Document</div>
+               </div>
+               <div class="col-md-5 col-lg-5 col-sm-5">
+                     <form class="navbar-form">
+                           <div class="input-group no-border">
+                               <input type="text" value="" class="form-control" placeholder="Search Your Uniq Id">
+                               <i class="material-icons search-icons">search</i>
+                           </div>
+                       </form>
+               </div>
+            </div>
+      <div class="row">
+         <div class="col-md-12">
+            <div class="card">
+               <div class="card-body">
+                  <div class="titleHead float-left"></div>
+                  <div class="table-responsive">
+                     <table class="table">
+                        <thead class="">
+                           <th>
+                              S.No.
+                           </th>
+                           <th>
+                              UNIQUE ID
+                           </th>
+                           <th>
+                              STUDENT NAME
+                           </th>
+                           <th>
+                              DOCUMENT TYPE
+                           </th>
+                           <th>
+                              UPLOAD DATE
+                           </th>
+                           <th>
+                              PREVIEW
+                           </th>
+                           <th>
+                              SHARE
+                           </th>
+                           <th>
+                              PRINT
+                           </th>
+                        </thead>
+
+                         <tbody>
+                                  <tr *ngFor="let item of dashboardData;let i = index">
+                                      <td>
+                                          {{i+1}}
+                                      </td>
+                                      <td>
+                                        {{item.instid}}           
+                                      </td>
+                                       <td>
+                                        {{item.studentName}}           
+                                      </td>
+                                       <td>
+                                        {{item.docporse[0]}}           
+                                      </td>                                       
+                                      <td>
+                                         {{item.req_date | date: 'dd/MM/yyyy , HH:mm '}}
+                                      </td>
+                                      <td>
+                                        <a href="javascript:void(0)" data-toggle="modal"  (click)="showpreview(item.instid)"> <img src="assets/img/preview.png" ></a>
+                                       
+                                      </td>
+                                      <td>
+                                         <a href="javascript:void(0)" data-toggle="modal" data-target="#shareModal" (click)="showData(item.instid)"> <img src="assets/img/share.png" ></a>
+                                      </td>
+                                      <td>
+                                         <img src="assets/img/qr-code.png" style="height:30px;">
+                                      </td>
+                                  </tr>
+                                 
+                        <tbody>                        
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+         <!--  <div class="modal-header">
+            </div> -->
+         <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            <h5 class="modal-title modalTitle" id="exampleModalLongTitle">ROLL NUMBER - 343574648337382722</h5>
+            <h6 class="modalsubTitle">STUDENT NAME - SUMIT VYAS    |    DOCUMENT TYPE - TRANSCRIPTS    |    COURSE - B.TECH      |    SEMESTER - 2nd    |    YEAR - 2020</h6>
+
+            <img src="assets/img/qr-code.png" style="height:60px;"/>
+          
+            <hr>
+
+            <div class="table-responsive">
+                     <table class="table table-bordered">
+                        <thead class="">
+                           <th>
+                              DAY & DATE 
+                           </th>
+                           <th>
+                              SUBJECT NAME
+                           </th>
+                           <th>
+                            BRANCH
+                           </th>
+                           <th>
+                              SCORE
+                           </th>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>
+                                MONDAY, 10/03/2020
+                              </td>
+                              <td>
+                                SUBJECT 1
+                              </td>
+                              <td>
+                                BRANCH 1
+                              </td>
+                              <td>
+                                 58
+                              </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                MONDAY, 10/03/2020
+                              </td>
+                              <td>
+                                SUBJECT 2
+                              </td>
+                              <td>
+                                BRANCH 2
+                              </td>
+                              <td>
+                                 58
+                              </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                MONDAY, 10/03/2020
+                              </td>
+                              <td>
+                                SUBJECT 3
+                              </td>
+                              <td>
+                                BRANCH 3
+                              </td>
+                              <td>
+                                 58
+                              </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                MONDAY, 10/03/2020
+                              </td>
+                              <td>
+                                SUBJECT 4
+                              </td>
+                              <td>
+                                BRANCH 4
+                              </td>
+                              <td>
+                                 58
+                              </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                MONDAY, 10/03/2020
+                              </td>
+                              <td>
+                                SUBJECT 5
+                              </td>
+                              <td>
+                                BRANCH 5
+                              </td>
+                              <td>
+                                 58
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>
+                                MONDAY, 10/03/2020
+                              </td>
+                              <td>
+                                SUBJECT 6
+                              </td>
+                              <td>
+                                BRANCH 6
+                              </td>
+                              <td>
+                                 58
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+         </div>
+      <!--    <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+         </div> -->
+      </div>
+   </div>
+</div>
+
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+         <!--  <div class="modal-header">
+            </div> -->
+         <div class="modal-body">
+            <b> Enter Email ID : -   </b>       
+            <form>
+            <div class="row mb-2">
+                 
+                  <div class="col-md-6">
+                     <mat-form-field>
+                        <input matInput placeholder="Email id" type="text" [(ngModel)]="emailId"
+                           autocomplete="nope" [ngModelOptions]="{standalone: true}">                        
+                     </mat-form-field>
+                  </div>
+               </div>
+              <br>
+             <div class="row mb-2 mt-4">
+                  <div class="col-md-12 text-center">
+                     <button type="submit" class="btn btn-primary" (click)="sendEmail()">Submit</button>
+                  </div>
+               </div>
+          </form>
+          or   <br>
+          <a routerLink="/studentInfo"  target="_blank">demo.blockcube.co/edublocks/studentInfo</a>
+         </div>
+      <!--    <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+         </div> -->
+      </div>
+   </div>
+</div>

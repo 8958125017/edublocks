@@ -1,0 +1,118 @@
+<div class="main-content">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-7 col-lg-7 col-sm-7">
+            <div class="titleHead float-left">UPLOAD STUDENT INFORMATION</div>
+         </div>
+      </div>
+      <div class="card">
+         <!-- <div class="row mb-3">
+            <div class="col-md-12">
+               <div class="upload_title">Upload Student details as per the below given formats : </div>
+            </div>
+         </div> -->
+         <div class="row mb-3">
+            <div class="col-md-12">
+               <ul>
+                  <li>
+                     <input type="radio" id="f-option" name="selector" checked (click)="studentInfo('singleUpload');">
+                     <label for="f-option">Single Upload</label>
+                     <div class="check"></div>
+                  </li>
+                  <li>
+                     <input type="radio" id="s-option" name="selector" (click)="studentInfo('bulkUpload');">
+                     <label for="s-option">Bulk Upload</label>
+                     <div class="check">
+                        <div class="inside"></div>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <hr class="mb-3">
+         <form [formGroup]="studentForm" (ngSubmit)="student()">
+            <div *ngIf="singleUpload">
+               <div class="row mb-2">
+                  <div class="col-md-6">
+                     <mat-form-field>
+                        <mat-label>Document Type</mat-label>
+                        <select matNativeControl required (change)="changeInstituteType($event)"
+                           formControlName="docPurpose" autocomplete="nope">
+                           <option value="Green Card">Grade Card</option>
+                           <option value="Degree">Degree</option>
+                           <option value="Bonafied">Bonafied</option>
+                           <option value="Certificate">Certificate</option>
+                        </select>
+                        <span
+                           *ngIf="studentForm.controls.docPurpose.errors?.required && isSignupValidFormSubmitted != null && !isSignupValidFormSubmitted"
+                           class="small text-danger">Please enter Doc Purpose.</span>
+                     </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                     <mat-form-field>
+                        <input matInput placeholder="Doc Data" type="text" formControlName="docData"
+                           autocomplete="nope">
+                        <mat-error>
+                           <span
+                              *ngIf="studentForm.controls.docData.errors?.required && isSignupValidFormSubmitted != null && !isSignupValidFormSubmitted"
+                              class="small text-danger"> Please enter Document Data</span>
+                        </mat-error>
+                     </mat-form-field>
+                  </div>
+               </div>
+
+               <div class="row mb-4">
+                  <div class="col-md-6">
+                     <mat-form-field>
+                        <input matInput placeholder="Student Name"
+                            type="text"
+                           formControlName="studentName" autocomplete="nope">
+                        <mat-error>
+                           <span
+                              *ngIf="studentForm.controls.studentName.errors?.required && isSignupValidFormSubmitted != null && !isSignupValidFormSubmitted"
+                              class="small text-danger"> Please enter Student Name</span>
+                        </mat-error>
+                     </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                     <mat-form-field>
+                        <input matInput placeholder="Student Roll No."
+                           onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="15" type="text"
+                           formControlName="studentRollNumber" autocomplete="nope">
+                        <mat-error>
+                           <span
+                              *ngIf="studentForm.controls.studentRollNumber.errors?.required && isSignupValidFormSubmitted != null && !isSignupValidFormSubmitted"
+                              class="small text-danger"> Please enter Student Roll Number</span>
+                        </mat-error>
+                     </mat-form-field>
+                  </div>
+               </div>
+               <div class="row mb-2">
+                  <div class="col-md-6">
+                        <input type="file" name="pan" accept="*application/pdf, .jpg, .jpeg, .pdf" (change)="fileUpload($event)" [ngModelOptions]="{standalone: true}" [(ngModel)]="docFile" required>
+                        <p *ngIf="!isFileUploaded && isSignupValidFormSubmitted != null && !isSignupValidFormSubmitted" class="small text-danger">Please upload Document File</p>
+                  </div>
+               </div>
+               <div class="row mb-2 mt-4">
+                  <div class="col-md-12 text-center">
+                     <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+               </div>
+            </div>
+            <div *ngIf="bulkUpload">
+               <div class="row mb-2">
+                  <div class="col-md-12">
+                     <p class="upload-text"><span class="text-danger">*</span> Upload data file CSV / XML / SQL Dump</p>
+                  </div>
+                  <div class="col-md-12">
+                     <button type="submit" class="btn btn-success">Upload</button>
+                  </div>
+                  <div class="col-md-12">
+                     <p>Click to Upload More</p>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>

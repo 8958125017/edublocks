@@ -1,0 +1,80 @@
+<div id="login-container" class="is-Mobile-login-bg">
+   <div class="rectangle">
+      <div class="form-container">
+        <div class="mobile-welcome-text">Welcome to EduBlocks</div>
+         <div class="form-bg">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+               <div class="welcome-text">Welcome to EduBlocks</div>
+               <div class="login-txt">Login to your account</div>
+               <div class="row mt-3">
+                  <div class="col-md-12">
+                     <mat-form-field class="example-full-width" style="margin-bottom: 15px;">
+                        <input matInput placeholder="Email address" formControlName="email" type="email" autocomplete="nope">
+                         <mat-error>  
+                           <span *ngIf="loginForm.controls.email.errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted" class="small text-danger"> Please enter email.</span>
+                  <span *ngIf="loginForm.controls.email.status === 'INVALID' && !loginForm.controls.email.errors?.required" class="small text-danger">Email must be a valid email address</span>
+
+                        </mat-error> 
+                     </mat-form-field>
+                  </div>
+                  <div class="col-md-12">
+                     <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Password" type="password" formControlName="password" autocomplete="off">
+                         <mat-error >
+                         <span *ngIf="loginForm.controls.password.errors?.required && isValidFormSubmitted != null && !isValidFormSubmitted" class="small text-danger">Please enter password.</span>
+                  <span *ngIf="loginForm.controls.password.errors?.minlength && isValidFormSubmitted != null && !isValidFormSubmitted" class="small text-danger">Please must be minimum 6 chracter</span>
+
+                          </mat-error>
+                     </mat-form-field>
+                  </div>
+               </div>
+            <div class="row mt-2 mb-4 copyright">
+            <div class="col-md-7">
+               <input type="checkbox" class="filled-in" />
+                <span class="rememberMe">Remember me.</span>
+            </div>
+            <div class="col-md-5">
+               <label class="Forgot-Password float-right">
+                  <a href="JavaScript:Void(0)" (click)="navigateToForgot()">Forgot Password?</a>
+              </label>
+            </div>
+         </div>
+          <button  type="submit" class="btn btn-primary" >Login</button>
+          <button  type="submit" class="btn btn-danger btn-outline-primary" routerLink="/signup">Sign up</button>
+            </form>
+         </div>
+         <div class="row mt-4 copyright">
+            <div class="col-md-7">
+               <div class="">© 2020 Blockcube Technology Limited.</div>
+            </div>
+            <div class="col-md-5">
+               <div class="row">
+                  <div class="col-md-4">
+                     Terms
+                  </div>
+                  <div class="col-md-4">
+                     Privacy
+                  </div>
+                  <div class="col-md-4">
+                     <span class="dot"></span>
+                     <span class="dot"></span>
+                     <span class="dot"></span>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="login-bg">
+      <div class="welcome-rectangle ">
+         <div class="welcome">
+            WELCOME TO <br><span class="text-style-1">EDUBLOCKS!</span> 
+         </div>
+         <div class="certificat">
+            Education certificates are key assets in
+            the education domain. The provenance of
+            these records also needs to be determined also.
+         </div>
+      </div>
+   </div>
+</div>
